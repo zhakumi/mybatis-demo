@@ -3,18 +3,28 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<!--    从配置文件读取-->
+    <!--    从配置文件读取-->
     <properties resource="config.properties">
         <property name="username" value="root"/>
         <property name="password" value="wangcan1230"/>
     </properties>
 
-<!--    枚举全局注册-->
+    <settings>
+    <!--   设置默认脚本语言为velocity-->
+        <setting name="defaultScriptingLanguage" value="velocity"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias type="org.mybatis.scripting.velocity.Driver" alias="velocity"/>
+    </typeAliases>
+    
+    <!--    枚举全局注册-->
     <typeHandlers>
-        <typeHandler handler="com.wangcan.mybatis.demo.EnumHandler" javaType="com.wangcan.mybatis.demo.domain.EnableEnum"/>
+        <typeHandler handler="com.wangcan.mybatis.demo.EnumHandler"
+                     javaType="com.wangcan.mybatis.demo.domain.EnableEnum"/>
     </typeHandlers>
 
-<!--    配置mybatis插件-->
+    <!--    配置mybatis插件-->
     <plugins>
         <plugin interceptor="com.wangcan.mybatis.demo.Interceptor.LogInterceptor">
             <property name="user" value="test"/>
@@ -43,10 +53,12 @@
         </environment>
     </environments>
 
-    <!--    mapper 注册到全局-->
+    <!--    mapper 映射器 注册到全局-->
     <mappers>
         <mapper resource="mapper/UserMapper.xml"/>
     </mappers>
+    
+
 
 
 </configuration>
