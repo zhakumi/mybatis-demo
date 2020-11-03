@@ -16,6 +16,7 @@ public class Application {
         //xml 配置
         try {
             SqlSessionFactory SqlSessionFactory = null;
+            // 注意该文件根路径 一定要是resource　类型　不然会报Could not find resource ***.xml
             String resource = "mybatis-config.xml";
             InputStream inputStream = Resources.getResourceAsStream(resource);
             SqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream,"dev");

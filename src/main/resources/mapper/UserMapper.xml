@@ -3,12 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wangcan.mybatis.demo.mapper.UserMapper">
+<!--    <resultMap id="BaseResultMap" type="com.wangcan.mybatis.demo.domain.User">-->
+<!--        <id column="id" property="id" jdbcType="BIGINT" />-->
+<!--        <result column="name" property="name" jdbcType="VARCHAR" />-->
+<!--&lt;!&ndash;        简单类型映射 只需要指定typeHandler 给mybatis处理&ndash;&gt;-->
+<!--        <result column="gender" property="gender" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>-->
+<!--        <result column="enable" property="enable" javaType="com.wangcan.mybatis.demo.domain.EnableEnum"/>-->
+<!--    </resultMap>-->
+
     <resultMap id="BaseResultMap" type="com.wangcan.mybatis.demo.domain.User">
-        <id column="id" property="id" jdbcType="BIGINT" />
-        <result column="name" property="name" jdbcType="VARCHAR" />
-<!--        简单类型映射 只需要指定typeHandler 给mybatis处理-->
-        <result column="gender" property="gender" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
-        <result column="enable" property="enable" javaType="com.wangcan.mybatis.demo.domain.EnableEnum"/>
+        <id column="ID" property="id" />
+        <result column="NAME" property="name" />
+        <result column="PASSWORD" property="password" />
     </resultMap>
 
 <!--    <select id="select" resultMap="BaseResultMap">-->
@@ -16,11 +22,11 @@
 <!--  </select>-->
 
     <sql id="user_column">
-       *
+       ID, NAME, PASSWORD
      </sql>
 
     <select id="select" resultMap="BaseResultMap">
         SELECT <include refid="user_column"/>
-        FROM USER  WHERE id = @{id}
+        FROM OMS_USER  WHERE id = @{id}
     </select>
 </mapper>

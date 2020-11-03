@@ -11,20 +11,26 @@ import org.apache.ibatis.session.RowBounds;
 
 import java.util.Properties;
 
+/**
+ * @author Administrator
+ */
 @Intercepts(@Signature(
-        type= Executor.class,
+        type = Executor.class,
         method = "query",
-        args = {MappedStatement.class,Object.class, RowBounds.class, ResultHandler.class}))
+        args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}))
 public class LogInterceptor implements Interceptor {
     private String user;
 
     private Properties properties = new Properties();
+
+    @Override
     public Object intercept(Invocation invocation) throws Throwable {
         Object returnObject = invocation.proceed();
-        System.out.println(user+"select");
+        System.out.println(user + "select");
         return returnObject;
     }
 
+    @Override
     public void setProperties(Properties properties) {
         this.properties = properties;
     }

@@ -5,8 +5,8 @@
 <configuration>
     <!--    从配置文件读取-->
     <properties resource="config.properties">
-        <property name="username" value="root"/>
-        <property name="password" value="wangcan1230"/>
+        <property name="username" value="mysqluser"/>
+        <property name="password" value="mysqluser"/>
     </properties>
 
     <settings>
