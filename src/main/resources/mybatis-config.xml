@@ -9,10 +9,10 @@
         <property name="password" value="mysqluser"/>
     </properties>
 
-    <settings>
-    <!--   设置默认脚本语言为velocity-->
-        <setting name="defaultScriptingLanguage" value="velocity"/>
-    </settings>
+<!--    <settings>-->
+<!--    &lt;!&ndash;   设置默认脚本语言为velocity&ndash;&gt;-->
+<!--        <setting name="defaultScriptingLanguage" value="velocity"/>-->
+<!--    </settings>-->
 
     <typeAliases>
         <typeAlias type="org.mybatis.scripting.velocity.Driver" alias="velocity"/>

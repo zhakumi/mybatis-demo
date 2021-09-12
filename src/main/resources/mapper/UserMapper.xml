@@ -13,20 +13,18 @@
 
     <resultMap id="BaseResultMap" type="com.wangcan.mybatis.demo.domain.User">
         <id column="ID" property="id" />
-        <result column="NAME" property="name" />
-        <result column="PASSWORD" property="password" />
+        <result column="USER_NAME" property="name" />
+        <result column="USER_PASSWORD" property="password" />
     </resultMap>
 
-<!--    <select id="select" resultMap="BaseResultMap">-->
-<!--        select * from User where id = #{id}-->
-<!--  </select>-->
+
 
     <sql id="user_column">
-       ID, NAME, PASSWORD
+       ID, USER_NAME, USER_PASSWORD
      </sql>
 
     <select id="select" resultMap="BaseResultMap">
         SELECT <include refid="user_column"/>
-        FROM OMS_USER  WHERE id = @{id}
+        FROM OMS_USER  WHERE id = #{id}
     </select>
 </mapper>

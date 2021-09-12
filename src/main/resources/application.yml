@@ -1,0 +1,11 @@
+
+spring:
+  datasource:
+    username: mysqluser
+    password: mysqluser
+    url: jdbc:mysql://172.26.59.35:3306/WK_OMS_WORKORDER
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.wangcan.mybatis.demo.domain
